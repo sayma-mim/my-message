@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day My Love Toukir! 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float linear infinite;
+        }
+
+        /* Page 1: Welcome */
+        #page1 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #ff8fab 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-text {
+            font-size: 3.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .flower-button {
+            background: white;
+            color: #ff6b9d;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: bold;
+        }
+
+        .flower-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            background: #fff0f5;
+        }
+
+        .flower-icon {
+            font-size: 2rem;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Page 2: Question */
+        #page2 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffd6e8 50%, #ffb3d9 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .question {
+            font-size: 3rem;
+            color: #c2185b;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        #yesBtn {
+            background: #ff1744;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 23, 68, 0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 23, 68, 0.6);
+        }
+
+        #noBtn {
+            background: #9e9e9e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #noBtn:hover {
+            background: #757575;
+        }
+
+        /* Page 3: Love Letter */
+        #page3 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe0ec 0%, #ffc4d6 50%, #ffaac7 100%);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+
+        .letter-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 700px;
+            position: relative;
+        }
+
+        .letter-container::before {
+            content: "💌";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+        }
+
+        .letter-title {
+            font-size: 2.5rem;
+            color: #c2185b;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .letter-content {
+            font-size: 1.3rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .letter-signature {
+            font-size: 1.5rem;
+            color: #c2185b;
+            text-align: right;
+            font-family: 'Brush Script MT', cursive;
+            margin-top: 20px;
+        }
+
+        .next-button {
+            background: #ff1744;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            box-shadow: 0 5px 15px rgba(255, 23, 68, 0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .next-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 23, 68, 0.6);
+        }
+
+        /* Page 4: Memory Gallery */
+        #page4 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffd4e5 0%, #ffb3d1 50%, #ff99c2 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+
+        .gallery-title {
+            font-size: 3rem;
+            color: #c2185b;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin-bottom: 40px;
+        }
+
+        .photo-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .photo-card:active {
+            transform: scale(0.98);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffcce0 0%, #ffa8cc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            color: #c2185b;
+            font-weight: bold;
+            z-index: 5;
+        }
+
+        /* Page 6: Wait Message */
+        #page6 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ff99bb 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .proposal-text1 {
+            font-size: 3.5rem;
+            color: #c2185b;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Page 5: Marriage Proposal */
+        #page5 {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff99bb 0%, #ff6b9d 50%, #ff1744 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .proposal-text {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 3px 3px 8px rgba(0,0,0,0.3); }
+            50% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 3px 3px 8px rgba(0,0,0,0.3); }
+        }
+
+        .proposal-ring {
+            font-size: 5rem;
+            margin-bottom: 40px;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .proposal-buttons {
+            display: flex;
+            gap: 30px;
+            position: relative;
+        }
+
+        #finalYes {
+            background: white;
+            color: #ff1744;
+            border: none;
+            padding: 25px 60px;
+            font-size: 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        #finalYes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.7);
+        }
+
+        #finalNo {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: 2px solid white;
+            padding: 20px 45px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            position: absolute;
+            left: 300px;          
+            top: 0px; 
+            transition: all 7s ease;
+        }
+
+        .success-message {
+            display: none;
+            font-size: 3rem;
+            color: white;
+            text-align: center;
+            margin-top: 40px;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(255, 105, 180, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255, 105, 180, 0.3);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 105, 180, 0.6);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.8rem;
+            background: rgba(255, 105, 180, 0.8);
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-bg" id="heartBg"></div>
+
+    <!-- Page 1: Welcome -->
+    <div id="page1">
+        <div class="welcome-text">
+            💖 Happy Birthday To u my love<br>! 💖
+        </div>
+        <button class="flower-button" onclick="goToPage2()">
+            <span class="flower-icon">🌹</span>
+            Click Here
+        </button>
+    </div>
+
+    <!-- Page 2: Do You Love Me? -->
+    <div id="page2">
+        <div class="question">
+            Do You Love Me?🥰💕
+        </div>
+        <div class="buttons-container">
+            <button id="yesBtn" onclick="goToPage3()">Yes 💗</button>
+            <button id="noBtn" onmouseover="growYes()" onclick="growYes()">No</button>
+        </div>
+    </div>
+
+    <!-- Page 3: Love Letter -->
+    <div id="page3">
+        <div class="letter-container">
+            <div class="letter-title">My Dear Wifeyy 💕</div>
+            <div class="letter-content">
+                Every moment with you feels like a beautiful dream I never want to wake up from. 
+                You are the sunshine that brightens my darkest days and the moonlight that guides me through the night.
+                <br><br>
+                Your smile is my favorite sight in the world, and your laughter is the sweetest melody to my ears. 
+                I am so grateful for every second we spend together, for every memory we create, and for the love we share.
+                <br><br>
+                You make my world complete, and I cannot imagine my life without you in it. 
+                Thank you for being you, for loving me, and for making every day feel like Valentine's Day.
+                <br><br>
+                I love you more than words can express! Happy Birthday to u my wife 💖
+            </div>
+            <div class="letter-signature">Forever Yours future hubby💕</div>
+            <button class="next-button" onclick="goToPage4()">See Our Memories →</button>
+        </div>
+    </div>
+
+    <!-- Page 4: Memory Gallery -->
+    <div id="page4">
+        <div class="gallery-title">Our Beautiful Memories 📸</div>
+        <div class="photo-grid">
+            <div class="photo-card" onclick="openLightbox('images/image1.jpeg', 'Our First Selfieeer')">
+                <div class="photo-placeholder">
+                    <img src="images/image1.jpeg" alt="Our First Selfieee">
+                </div>
+                <div class="photo-caption">Tumi ar ami</div>
+            </div>
+            <div class="photo-card" onclick="openLightbox('images/image8.jpeg', 'Cutest Picture Everrr')">
+                <div class="photo-placeholder">
+                    <img src="images/image8.jpeg" alt="First Flowers">
+                </div>
+                <div class="photo-caption">Cutest Picture Everrr</div>
+            </div>
+            <div class="photo-card" onclick="openLightbox('images/image3.jpeg', 'Jamai Bow Champions')">
+                <div class="photo-placeholder">
+                    <img src="images/image3.jpeg" alt="Birthday Surprise">
+                </div>
+                <div class="photo-caption">Jamai Bow </div>
+            </div>
+            <div class="photo-card" onclick="openLightbox('images/image2.jpeg', 'University Last Picnic')">
+                <div class="photo-placeholder">
+                    <img src="images/image2.jpeg" alt="Sunset Together">
+                </div>
+                <div class="photo-caption">Jamai Bow </div>
+            </div>
+            <div class="photo-card" onclick="openLightbox('images/image5.jpeg', 'Previous Valentine')">
+                <div class="photo-placeholder">
+                    <img src="images/image5.jpeg" alt="Special Moments">
+                </div>
+                <div class="photo-caption">Best Moment Ever</div>
+            </div>
+            <div class="photo-card" onclick="openLightbox('images/image6.jpeg', 'Best Moment Ever')">
+                <div class="photo-placeholder">
+                    <img src="images/image6.jpeg" alt="Making Memories">
+                </div>
+                <div class="photo-caption">Sundor Nah??</div>
+            </div>
+        </div>
+        <button class="next-button" onclick="goToPage6()">One More Thing... 💍</button>
+    </div>
+
+    <!-- Page 6: Wait Message -->
+    <div id="page6">
+        <div class="proposal-text1">
+            waittttttttttttt!!!
+        </div>
+        <button class="flower-button" onclick="goToPage5()">
+            <span class="flower-icon">😚</span>
+            Click Here
+        </button>
+    </div>
+
+    <!-- Page 5: Marriage Proposal -->
+    <div id="page5">
+        <div class="proposal-ring">💍</div>
+        <div class="proposal-text">
+            Will You Marry Me? 🙈💖
+        </div>
+        <div class="proposal-buttons">
+            <button id="finalYes" onclick="acceptProposal()">YES! 💕</button>
+            <button id="finalNo">No</button>
+        </div>
+        <div class="success-message" id="successMsg">
+            i knowwwww you say yesssss 💖<br>
+            🎉 You made me the happiest person alive! 🎉<br>
+            I love you forever my jannnn! 💕💍
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script>
+        function createHearts() {
+            const heartBg = document.getElementById('heartBg');
+            const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝'];
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartBg.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        function goToPage2() {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'flex';
+        }
+        function goToPage3() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('page3').style.display = 'flex';
+        }
+        function goToPage4() {
+            document.getElementById('page3').style.display = 'none';
+            document.getElementById('page4').style.display = 'flex';
+        }
+        function goToPage6() {
+            document.getElementById('page4').style.display = 'none';
+            document.getElementById('page6').style.display = 'flex';
+        }
+        function goToPage5() {
+            document.getElementById('page6').style.display = 'none';
+            document.getElementById('page5').style.display = 'flex';
+            startMovingNo();
+        }
+
+        let yesSize = 1.5;
+        function growYes() {
+            const yesBtn = document.getElementById('yesBtn');
+            yesSize += 0.3;
+            yesBtn.style.fontSize = yesSize + 'rem';
+            yesBtn.style.padding = (15 + yesSize * 3) + 'px ' + (30 + yesSize * 5) + 'px';
+        }
+
+        function startMovingNo() {
+            const finalNo = document.getElementById('finalNo');
+            finalNo.addEventListener('mouseover', moveNoButton);
+            finalNo.addEventListener('click', moveNoButton);
+            function moveNoButton(e) {
+                e.preventDefault();
+                const maxX = window.innerWidth - 200;
+                const maxY = window.innerHeight - 100;
+                const randomX = Math.random() * maxX;
+                const randomY = Math.random() * maxY;
+                finalNo.style.left = randomX + 'px';
+                finalNo.style.top = randomY + 'px';
+            }
+        }
+
+        function acceptProposal() {
+            document.querySelector('.proposal-buttons').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => { createConfetti(); }, i * 100);
+            }
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.textContent = ['🎉', '💕', '💖', '💍', '⭐'][Math.floor(Math.random() * 5)];
+            confetti.style.position = 'fixed';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '-50px';
+            confetti.style.fontSize = '2rem';
+            confetti.style.zIndex = '1000';
+            confetti.style.pointerEvents = 'none';
+            document.body.appendChild(confetti);
+            let pos = -50;
+            const fall = setInterval(() => {
+                pos += 5;
+                confetti.style.top = pos + 'px';
+                if (pos > window.innerHeight) {
+                    clearInterval(fall);
+                    confetti.remove();
+                }
+            }, 20);
+        }
+
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            lightboxImg.src = imageSrc;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            event.stopPropagation();
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { closeLightbox(); }
+        });
+    </script>
+</body>
+</html>
